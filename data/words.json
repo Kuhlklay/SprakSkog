@@ -1,0 +1,382 @@
+{
+  "words": [
+      {
+          "de": "Haus",
+          "en": "house",
+          "it": "casa",
+          "ru": "дом",
+          "is": "hús"
+      },
+      {
+          "de": "Auto",
+          "en": "car",
+          "it": "auto",
+          "ru": "автомобиль",
+          "is": "bíll"
+      },
+      {
+          "de": "Tisch",
+          "en": "table",
+          "it": "tavolo",
+          "ru": "стол",
+          "is": "borð"
+      },
+      {
+          "de": "Stuhl",
+          "en": "chair",
+          "it": "sedia",
+          "ru": "стул",
+          "is": "stóll"
+      },
+      {
+          "de": "Buch",
+          "en": "book",
+          "it": "libro",
+          "ru": "книга",
+          "is": "bók"
+      },
+      {
+          "de": "Apfel",
+          "en": "apple",
+          "it": "mela",
+          "ru": "яблоко",
+          "is": "epli"
+      },
+      {
+          "de": "Hund",
+          "en": "dog",
+          "it": "cane",
+          "ru": "собака",
+          "is": "hundur"
+      },
+      {
+          "de": "Katze",
+          "en": "cat",
+          "it": "gatto",
+          "ru": "кошка",
+          "is": "kisa"
+      },
+      {
+          "de": "Blume",
+          "en": "flower",
+          "it": "fiore",
+          "ru": "цветок",
+          "is": "blóm"
+      },
+      {
+          "de": "Sonne",
+          "en": "sun",
+          "it": "sole",
+          "ru": "солнце",
+          "is": "sól"
+      },
+      {
+          "de": "Mond",
+          "en": "moon",
+          "it": "luna",
+          "ru": "луна",
+          "is": "máni"
+      },
+      {
+          "de": "Wasser",
+          "en": "water",
+          "it": "acqua",
+          "ru": "вода",
+          "is": "vatn"
+      },
+      {
+          "de": "Berg",
+          "en": "mountain",
+          "it": "montagna",
+          "ru": "гора",
+          "is": "fjall"
+      },
+      {
+          "de": "Bruder",
+          "en": "brother",
+          "it": "fratello",
+          "ru": "брат",
+          "is": "bróðir"
+      },
+      {
+          "de": "Schwester",
+          "en": "sister",
+          "it": "sorella",
+          "ru": "сестра",
+          "is": "systir"
+      },
+      {
+          "de": "Vogel",
+          "en": "bird",
+          "it": "uccello",
+          "ru": "птица",
+          "is": "fugl"
+      },
+      {
+          "de": "Fluss",
+          "en": "river",
+          "it": "fiume",
+          "ru": "река",
+          "is": "á"
+      },
+      {
+          "de": "Himmel",
+          "en": "sky",
+          "it": "cielo",
+          "ru": "небо",
+          "is": "himinn"
+      },
+      {
+          "de": "Haus",
+          "en": "house",
+          "it": "casa",
+          "ru": "дом",
+          "is": "hús"
+      },
+      {
+          "de": "Auto",
+          "en": "car",
+          "it": "auto",
+          "ru": "автомобиль",
+          "is": "bíll"
+      },
+      {
+          "de": "Tisch",
+          "en": "table",
+          "it": "tavolo",
+          "ru": "стол",
+          "is": "borð"
+      },
+      {
+          "de": "Stuhl",
+          "en": "chair",
+          "it": "sedia",
+          "ru": "стул",
+          "is": "stóll"
+      },
+      {
+          "de": "Buch",
+          "en": "book",
+          "it": "libro",
+          "ru": "книга",
+          "is": "bók"
+      },
+      {
+          "de": "Apfel",
+          "en": "apple",
+          "it": "mela",
+          "ru": "яблоко",
+          "is": "epli"
+      },
+      {
+          "de": "Hund",
+          "en": "dog",
+          "it": "cane",
+          "ru": "собака",
+          "is": "hundur"
+      },
+      {
+          "de": "Katze",
+          "en": "cat",
+          "it": "gatto",
+          "ru": "кошка",
+          "is": "kisa"
+      },
+      {
+          "de": "Blume",
+          "en": "flower",
+          "it": "fiore",
+          "ru": "цветок",
+          "is": "blóm"
+      },
+      {
+          "de": "Sonne",
+          "en": "sun",
+          "it": "sole",
+          "ru": "солнце",
+          "is": "sól"
+      },
+      {
+          "de": "Mond",
+          "en": "moon",
+          "it": "luna",
+          "ru": "луна",
+          "is": "máni"
+      },
+      {
+          "de": "Wasser",
+          "en": "water",
+          "it": "acqua",
+          "ru": "вода",
+          "is": "vatn"
+      },
+      {
+          "de": "Berg",
+          "en": "mountain",
+          "it": "montagna",
+          "ru": "гора",
+          "is": "fjall"
+      },
+      {
+          "de": "Bruder",
+          "en": "brother",
+          "it": "fratello",
+          "ru": "брат",
+          "is": "bróðir"
+      },
+      {
+          "de": "Schwester",
+          "en": "sister",
+          "it": "sorella",
+          "ru": "сестра",
+          "is": "systir"
+      },
+      {
+          "de": "Vogel",
+          "en": "bird",
+          "it": "uccello",
+          "ru": "птица",
+          "is": "fugl"
+      },
+      {
+          "de": "Fluss",
+          "en": "river",
+          "it": "fiume",
+          "ru": "река",
+          "is": "á"
+      },
+      {
+          "de": "Himmel",
+          "en": "sky",
+          "it": "cielo",
+          "ru": "небо",
+          "is": "himinn"
+      },
+      {
+          "de": "Haus",
+          "en": "house",
+          "it": "casa",
+          "ru": "дом",
+          "is": "hús"
+      },
+      {
+          "de": "Auto",
+          "en": "car",
+          "it": "auto",
+          "ru": "автомобиль",
+          "is": "bíll"
+      },
+      {
+          "de": "Tisch",
+          "en": "table",
+          "it": "tavolo",
+          "ru": "стол",
+          "is": "borð"
+      },
+      {
+          "de": "Stuhl",
+          "en": "chair",
+          "it": "sedia",
+          "ru": "стул",
+          "is": "stóll"
+      },
+      {
+          "de": "Buch",
+          "en": "book",
+          "it": "libro",
+          "ru": "книга",
+          "is": "bók"
+      },
+      {
+          "de": "Apfel",
+          "en": "apple",
+          "it": "mela",
+          "ru": "яблоко",
+          "is": "epli"
+      },
+      {
+          "de": "Hund",
+          "en": "dog",
+          "it": "cane",
+          "ru": "собака",
+          "is": "hundur"
+      },
+      {
+          "de": "Katze",
+          "en": "cat",
+          "it": "gatto",
+          "ru": "кошка",
+          "is": "kisa"
+      },
+      {
+          "de": "Blume",
+          "en": "flower",
+          "it": "fiore",
+          "ru": "цветок",
+          "is": "blóm"
+      },
+      {
+          "de": "Sonne",
+          "en": "sun",
+          "it": "sole",
+          "ru": "солнце",
+          "is": "sól"
+      },
+      {
+          "de": "Mond",
+          "en": "moon",
+          "it": "luna",
+          "ru": "луна",
+          "is": "máni"
+      },
+      {
+          "de": "Wasser",
+          "en": "water",
+          "it": "acqua",
+          "ru": "вода",
+          "is": "vatn"
+      },
+      {
+          "de": "Berg",
+          "en": "mountain",
+          "it": "montagna",
+          "ru": "гора",
+          "is": "fjall"
+      },
+      {
+          "de": "Bruder",
+          "en": "brother",
+          "it": "fratello",
+          "ru": "брат",
+          "is": "bróðir"
+      },
+      {
+          "de": "Schwester",
+          "en": "sister",
+          "it": "sorella",
+          "ru": "сестра",
+          "is": "systir"
+      },
+      {
+          "de": "Vogel",
+          "en": "bird",
+          "it": "uccello",
+          "ru": "птица",
+          "is": "fugl"
+      },
+      {
+          "de": "Fluss",
+          "en": "river",
+          "it": "fiume",
+          "ru": "река",
+          "is": "á"
+      },
+      {
+          "de": "Himmel",
+          "en": "sky",
+          "it": "cielo",
+          "ru": "небо",
+          "is": "himinn"
+      }
+    ]
+}

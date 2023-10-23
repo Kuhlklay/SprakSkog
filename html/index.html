@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        * {
+            cursor: normal;
+            background-color: rgb(40, 40, 40);
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space between;
+            margin: 30px;
+        }
+
+        .item, .target {
+            width: 100px;
+            height: 100px;
+            background-color: transparent;
+            border: 2px solid lightgray;
+            border-radius: 15px;
+            text-align: center;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .item:nth-child(odd) {
+            margin-right: 40px;
+        }
+
+        .target {
+            width: 200px;
+            height: 200px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="item" draggable="true" data-id="1"></div>
+            <div class="item" draggable="true" data-id="2"></div>
+        </div>
+        <div class="target" data-id="1" id="imageTarget"></div>
+        <div class="row">
+            <div class="item" draggable="true" data-id="3"></div>
+            <div class="item" draggable="true" data-id="4"></div>
+        </div>
+    </div>
+
+    <script>
+        let words = [];
+        let miscTexts = {};
+
+        // Lade die Wörterliste aus der JSON-Datei "words.json"
+        fetch("../data/words.json")
+            .then(response => response.json())
+            .then(data => {
+                words = data.words;
+                startGame();
+            });
+
+        // Lade die Übersetzungen für "Richtig" und "Falsch" aus der JSON-Datei "misc.json"
+        fetch("../data/misc.json")
+            .then(response => response.json())
+            .then(data => {
+                miscTexts = data;
+            });
+
+        function startGame() {
+            const items = document.querySelectorAll('.item');
+            const imageTarget = document.getElementById('imageTarget');
+            const targets = document.querySelectorAll('.target');
+
+            // Auswahl der sLang und lLang
+            const sLang = 'is';
+            const lLang = 'de';
+
+            function setCorrect() {
+                return miscTexts[sLang].right;
+            }
+
+            function setIncorrect() {
+                return miscTexts[sLang].wrong;
+            }
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+                return array;
+            }
+
+            function generateUniqueAnswerIds(imageId) {
+                const answerIds = [imageId];
+                while (answerIds.length < 4) {
+                    const randomId = Math.floor(Math.random() * words.length);
+                    if (!answerIds.includes(randomId)) {
+                        answerIds.push(randomId);
+                    }
+                }
+                return shuffleArray(answerIds);
+            }
+
+            function ensureUniqueAnswers(imageId) {
+                let answerIds = generateUniqueAnswerIds(imageId);
+                while (hasDuplicates(answerIds)) {
+                    answerIds = generateUniqueAnswerIds(imageId);
+                }
+                return answerIds;
+            }
+
+            function hasDuplicates(array) {
+                return (new Set(array)).size !== array.length;
+            }
+
+            function nextRound() {
+                let isUnique = false;
+                let answerIds = [];
+
+                while (!isUnique) {
+                    shuffleArray(words);
+                    // Begriff-ID und Bild-ID für die Überprüfung
+                    const termId = Math.floor(Math.random() * 4);
+                    const imageId = termId;
+
+                    answerIds = ensureUniqueAnswers(imageId);
+
+                    if (!hasDuplicates(answerIds)) {
+                        isUnique = true;
+                    }
+                }
+
+                items.forEach((item, index) => {
+                    item.textContent = words[answerIds[index]][lLang];
+                    item.setAttribute('data-' + sLang, words[answerIds[index]][sLang]);
+                    item.setAttribute('data-id', answerIds[index]);
+                    item.setAttribute('draggable', 'true');
+                    item.addEventListener('dragstart', (e) => {
+                        e.dataTransfer.setData('text/plain', e.target.getAttribute('data-id'));
+                    });
+                });
+
+                // Den Begriff und das Bild festlegen
+                imageTarget.textContent = words[imageId][lLang];
+                imageTarget.setAttribute('data-' + sLang, words[imageId][sLang]);
+                imageTarget.setAttribute('data-id', imageId);
+
+                targets.forEach((target, index) => {
+                    target.textContent = words[answerIds[index]][sLang];
+                    target.setAttribute('data-' + sLang, words[answerIds[index]][sLang]);
+                    target.setAttribute('data-id', answerIds[index]);
+                });
+            }
+
+            items.forEach(item => {
+                item.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                });
+
+                item.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    const data = e.dataTransfer.getData('text/plain');
+                    const draggedItem = document.querySelector(`[data-id="${data}"]`);
+
+                    if (draggedItem.getAttribute('data-id') === e.target.getAttribute('data-id')) {
+                        e.target.textContent = setCorrect();
+                    } else {
+                        e.target.textContent = setIncorrect();
+                    }
+
+                    setTimeout(() => {
+                        nextRound();
+                    }, 1000);
+                });
+            });
+
+            imageTarget.addEventListener('dragover', (e) => {
+                e.preventDefault();
+            });
+
+            imageTarget.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const data = e.dataTransfer.getData('text/plain');
+                if (data === 'imageTarget') {
+                    return;
+                }
+                const draggedItem = document.querySelector(`[data-id="${data}"]`);
+                if (draggedItem.getAttribute('data-id') === imageTarget.getAttribute('data-id')) {
+                    imageTarget.textContent = setCorrect();
+                } else {
+                    imageTarget.textContent = setIncorrect();
+                }
+
+                setTimeout(() => {
+                    nextRound();
+                }, 1000);
+            });
+
+            nextRound();
+        }
+    </script>
+</body>
+</html>
